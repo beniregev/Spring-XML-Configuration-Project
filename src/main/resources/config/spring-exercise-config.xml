@@ -40,10 +40,7 @@
         <property name="" value=""></property>
     </bean>
     <bean id="taskF" class="model.TaskF">
-        <constructor-arg ref="" />
-        <constructor-arg ref="" />
-        <property name="" value=""></property>
-        <property name="" value=""></property>
+        <constructor-arg ref="taskG" />
         <property name="" value=""></property>
     </bean>
     <bean id="taskG" class="model.TaskG">
@@ -53,4 +50,5 @@
         <property name="" value=""></property>
         <property name="" value=""></property>
     </bean>
+
 </beans>
