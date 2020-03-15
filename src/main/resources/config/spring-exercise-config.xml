@@ -4,7 +4,53 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean>
-
+    <bean id="taskA" class="model.TaskA">
+        <constructor-arg ref="" />
+        <constructor-arg ref="" />
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+    </bean>
+    <bean id="taskB" class="model.TaskB">
+        <constructor-arg ref="" />
+        <constructor-arg ref="" />
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+    </bean>
+    <bean id="taskC" class="model.TaskC">
+        <constructor-arg ref="" />
+        <constructor-arg ref="" />
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+    </bean>
+    <bean id="taskD" class="model.TaskD">
+        <constructor-arg ref="" />
+        <constructor-arg ref="" />
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+    </bean>
+    <bean id="taskE" class="model.TaskE">
+        <constructor-arg ref="" />
+        <constructor-arg ref="" />
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+    </bean>
+    <bean id="taskF" class="model.TaskF">
+        <constructor-arg ref="" />
+        <constructor-arg ref="" />
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+    </bean>
+    <bean id="taskG" class="model.TaskG">
+        <constructor-arg ref="" />
+        <constructor-arg ref="" />
+        <property name="" value=""></property>
+        <property name="" value=""></property>
+        <property name="" value=""></property>
     </bean>
 </beans>
