@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="taskA" class="model.TaskA">
+        <property name="stringProp" value="Hello from task A"/>
+    </bean>
+    <bean id="taskB" class="model.TaskB">
+        <property name="listOfStrings">
+            <list>
+                <value>Hello Imperva!!!!!!!</value>
+                <value>SecureSphere MX On-Premise</value>
+                <value>Welcome to Spring framework</value>
+                <value>I love to drink Corana :-)</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
