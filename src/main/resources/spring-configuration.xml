@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="propTaskA" class="model.PropertyTaskA">
+        <property name="id" value="1"/>
+        <property name="name" value="John Doe"/>
+    </bean>
+    <bean id="propTaskC" class="model.PropertyTaskC">
+        <property name="id" value="555"/>
+        <property name="name" value="Johny 5"/>
+    </bean>
+
     <bean id="taskA" class="model.TaskA">
         <property name="stringProp" value="Hello from task A"/>
+        <property name="propertyTaskA" ref="propTaskA"/>
     </bean>
     <bean id="taskB" class="model.TaskB">
         <property name="listOfStrings">
@@ -16,5 +27,42 @@
             </list>
         </property>
     </bean>
+    <bean id="taskC" class="model.TaskC">
+        <property name="listOfPropertyTaskCs">
+            <list>
+                <bean class="model.PropertyTaskC">
+                    <property name="id" value="100" />
+                    <property name="name" value="list item 0" />
+                </bean>
+                <bean class="model.PropertyTaskC">
+                    <property name="id" value="101" />
+                    <property name="name" value="list item 1" />
+                </bean>
+            </list>
+        </property>
+        <property name="propertyTaskC" ref="propTaskC" />
+    </bean>
+    <bean id="taskD" class="model.TaskD">
+        <property name="mapTaskD">
+            <map>
+                <entry key="Sun" value="Sunday"/>
+                <entry key="Mon" value="Monday"/>
+                <entry key="Tue" value="Tuesday"/>
+                <entry key="Wed" value="Wednesday"/>
+                <entry key="Thu" value="Thursday"/>
+                <entry key="Fri" value="Friday"/>
+                <entry key="Sat" value="Saturday"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="taskE" class="model.TaskE">
+        <constructor-arg name="message" type="java.lang.String" value="Hello Spring framework XML-Based configuration" />
+    </bean>
+    <bean id="taskF" class="model.TaskF" init-method="init" />
 
+    <!--
+        <bean id="singletonTaskG" class="model.SingletonTaskG" />
+        The following is equivalent, though redundant (singleton scope is the default); using spring-beans-2.0.dtd
+    -->
+    <bean id="singletonTaskG" class="model.SingletonTaskG" scope="singleton" />
 </beans>
