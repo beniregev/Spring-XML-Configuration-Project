@@ -8,8 +8,6 @@ import java.util.List;
  *     <div>1. Create simple bean class - {@code TaskB}.</div>
  *     <div>2. Create Spring bean configuration file {@code spring-config.xml}.</div>
  *     <div>3. Configure collections as a bean property.</div>
- *     <div>4. Create a Test class - {@code TaskBTest}.</div>
- *     <div>5. Run the {@code TaskBTest}.</div>
  * </p>
  * @author Binyamin Regev
  */
@@ -25,7 +23,7 @@ public class TaskB {
     }
 
     public void displayStrings() {
-        System.out.println("List of Strings are: " + listOfStrings);
+        System.out.println("\tList of Strings are: " + listOfStrings);
         //this.listOfStrings.forEach(System.out::println);
     }
 }

@@ -1,0 +1,26 @@
+package model;
+
+/**
+ * This class (bean) is a property of {@link TaskA} class
+ * @author Binyamin Regev
+ */
+public class PropertyTaskA {
+    private int id;
+    private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
