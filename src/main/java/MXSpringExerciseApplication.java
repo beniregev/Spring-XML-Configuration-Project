@@ -8,6 +8,9 @@ public class MXSpringExerciseApplication {
         //FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("classpath:/config/spring-exercise-config.xml");
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:/spring-configuration.xml");
 
+        ApplicationContextProvider applicationContextProvider = new ApplicationContextProvider();
+        applicationContextProvider.setApplicationContext(context);
+
         System.out.println("Task A: ");
         TaskA taskA =  (TaskA) context.getBean("taskA");
         System.out.println("\tstring Property is \"" + taskA.getStringProp() + "\"");
@@ -34,6 +37,8 @@ public class MXSpringExerciseApplication {
         taskF.showMessage();
 
         System.out.println("\nTask G: ");
+        TaskG taskG = (TaskG) context.getBean("taskG");
+        taskG.displayMessage();
 
     }
 }

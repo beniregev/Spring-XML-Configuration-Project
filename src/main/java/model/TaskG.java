@@ -28,21 +28,47 @@ import org.springframework.context.annotation.Bean;
  * @author Binyamin Regev
  */
 public class TaskG {
+    private final int LOOKUP_METHOD = 1;
+    private final int OBJECT_FACTORY = 2;
+
     private ApplicationContext context;
     ObjectFactory<BeanB> objectFactory;
     private BeanB beanB;
+    private BeanB newBeanB;
 
-    public BeanB getB() {
-
+    public BeanB getB(final int option) {
+        BeanB newBeanB = null;
+        switch (option) {
+            case LOOKUP_METHOD:
+                System.out.println("Option 1: Lookup-method");
+                newBeanB = getBeanBOption1();
+                break;
+            case OBJECT_FACTORY:
+                System.out.println("Option 2: ObjectFactory");
+                newBeanB = getBeanBOption2();
+                break;
+        }
+        return newBeanB;
     }
-    public BeanB getBeanBOption1() {
 
-    }
-    public BeanB getBeanBOption2() {
+    private BeanB getBeanBOption1() {
         BeanB newBeanB = objectFactory.getObject();
         if (newBeanB == beanB) {
             System.out.println("The new BeanB is the same as existing BeanB? " + (newBeanB == beanB) + " ... " + newBeanB);
         }
         return newBeanB;
+    }
+
+    private BeanB getBeanBOption2() {
+        BeanB newBeanB = objectFactory.getObject();
+        if (newBeanB == beanB) {
+            System.out.println("The new BeanB is the same as existing BeanB? " + (newBeanB == beanB) + " ... " + newBeanB);
+        }
+        return newBeanB;
+    }
+
+    public void displayMessage() {
+        ApplicationContext context = ApplicationContextProvider.getApplicationContext();
+        System.out.println("ApplicationContext contains bean TaskG? " + context.containsBean("taskG"));
     }
 }

@@ -65,4 +65,5 @@
         The following is equivalent, though redundant (singleton scope is the default); using spring-beans-2.0.dtd
     -->
     <bean id="singletonTaskG" class="model.SingletonTaskG" scope="singleton" />
+    <bean id="taskG" class="model.TaskG" />
 </beans>
