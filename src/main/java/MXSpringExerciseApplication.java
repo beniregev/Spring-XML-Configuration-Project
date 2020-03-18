@@ -38,7 +38,7 @@ public class MXSpringExerciseApplication {
 
         System.out.println("\nTask G: ");
         TaskG taskG = (TaskG) context.getBean("taskG");
-        taskG.displayMessage();
+        taskG.createBeanIn2Options();
 
     }
 }

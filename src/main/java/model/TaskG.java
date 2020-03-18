@@ -1,8 +1,11 @@
 package model;
 
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+
+import java.util.Random;
 
 /**
  * <b>*** Bonus: ***</b>
@@ -28,23 +31,29 @@ import org.springframework.context.annotation.Bean;
  * @author Binyamin Regev
  */
 public class TaskG {
-    private final int LOOKUP_METHOD = 1;
-    private final int OBJECT_FACTORY = 2;
+    private final int LOOKUP_METHOD = 0;
+    private final int OBJECT_FACTORY = 1;
 
     private ApplicationContext context;
-    ObjectFactory<BeanB> objectFactory;
+    ObjectFactory<BeanB> objectFactory = new ObjectFactory<BeanB>() {
+        @Override
+        public BeanB getObject() throws BeansException {
+            return this;
+        }
+    };
     private BeanB beanB;
     private BeanB newBeanB;
+    private int numberOfBeansToCreate = new Random().nextInt(50);
 
     public BeanB getB(final int option) {
         BeanB newBeanB = null;
         switch (option) {
             case LOOKUP_METHOD:
-                System.out.println("Option 1: Lookup-method");
+                System.out.println("getB(int) - Option 1: Lookup-method");
                 newBeanB = getBeanBOption1();
                 break;
             case OBJECT_FACTORY:
-                System.out.println("Option 2: ObjectFactory");
+                System.out.println("getB(int) - Option 2: ObjectFactory");
                 newBeanB = getBeanBOption2();
                 break;
         }
@@ -67,8 +76,14 @@ public class TaskG {
         return newBeanB;
     }
 
-    public void displayMessage() {
+    public void createBeanIn2Options() {
         ApplicationContext context = ApplicationContextProvider.getApplicationContext();
         System.out.println("ApplicationContext contains bean TaskG? " + context.containsBean("taskG"));
+        System.out.println("numberOfBeansToCreate = " + numberOfBeansToCreate);
+        for (int i = 0; i <= numberOfBeansToCreate; i++) {
+            int option = new Random().nextInt(2);
+            System.out.println(i + ". option=" + option);
+            beanB = getB(option);
+        }
     }
 }
